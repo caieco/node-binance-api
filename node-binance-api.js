@@ -3023,11 +3023,7 @@ let api = function Binance( options = {} ) {
         * @return {promise or undefined} - omitting the callback returns a promise
         */
         orderStatus: function ( symbol, orderid, callback, flags = {} ) {
-            let parameters = Object.assign( { symbol: symbol }, flags );
-            if (orderid){
-                Object.assign( { orderId: orderid }, parameters )
-            }
-
+            let parameters = Object.assign( { symbol: symbol, orderId: orderid }, flags );
             if ( !callback ) {
                 return new Promise( ( resolve, reject ) => {
                     callback = ( error, response ) => {
